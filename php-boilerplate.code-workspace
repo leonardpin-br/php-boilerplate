@@ -1,0 +1,104 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"phpcs.executablePath": "../../../Users/leonardo/AppData/Roaming/Composer/vendor/bin/phpcs",
+		"phpcs.showWarnings": false,
+		"triggerTaskOnSave.tasks": {
+			"phpunit": [
+				"*.php"
+			]
+		},
+		"better-phpunit.xmlConfigFilepath": "./phpunit.xml",
+		"phpunit.files": "{test,tests}/**/*Test.php",
+		"testExplorer.useNativeTesting": false
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "newLint",
+				"type": "shell",
+				"command": "phpcbf",
+				"args": [
+					"--colors",
+					"${file}"
+				],
+				"problemMatcher": []
+			},
+			{
+				"label": "phpunit",
+				"type": "shell",
+				"command": "C:/Users/leonardo/AppData/Roaming/Composer/vendor/bin/phpunit.bat",
+				"problemMatcher": []
+			},
+			{
+				"label": "phpunit-skeleton-generator",
+				"detail": "Creates a test file from the current (class) file.",
+				"type": "shell",
+				"command": "bash",
+				"args": [
+					"./src/sh/phpunit-skeleton-generator.sh",
+					"${fileBasename}"
+				],
+				"problemMatcher": []
+			},
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"type": "bashdb",
+				"request": "launch",
+				"name": "Bash-Debug (hardcoded script name)",
+				"cwd": "${workspaceFolder}",
+				"program": "${file}",
+				"args": []
+			},
+			{
+				"name": "Listen for Xdebug",
+				"type": "php",
+				"request": "launch",
+				"port": 9003
+			},
+			{
+				"name": "Launch currently open script",
+				"type": "php",
+				"request": "launch",
+				"program": "${file}",
+				"cwd": "${fileDirname}",
+				"port": 0,
+				"runtimeArgs": [
+					"-dxdebug.start_with_request=yes"
+				],
+				"env": {
+					"XDEBUG_MODE": "debug,develop",
+					"XDEBUG_CONFIG": "client_port=${port}"
+				}
+			},
+			{
+				"name": "Launch Built-in web server",
+				"type": "php",
+				"request": "launch",
+				"runtimeArgs": [
+					"-dxdebug.mode=debug",
+					"-dxdebug.start_with_request=yes",
+					"-S",
+					"localhost:0"
+				],
+				"program": "",
+				"cwd": "${workspaceRoot}",
+				"port": 9003,
+				"serverReadyAction": {
+					"pattern": "Development Server \\(http://localhost:([0-9]+)\\) started",
+					"uriFormat": "http://localhost:%s",
+					"action": "openExternally"
+				}
+			}
+		]
+	}
+}

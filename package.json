@@ -1,0 +1,48 @@
+{
+    "name": "php-boilerplate",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "keywords": [],
+    "author": "Leonardo Pinheiro",
+    "license": "ISC",
+    "scripts": {
+        "clear:docs": "rm -rf ./docs/jsdoc/* && rm -rf ./docs/phpdoc/cache/* && rm -rf ./docs/phpdoc/html/* && rm -rf ./docs/sassdoc/*",
+        "remove:node_modules": "rm -rf ./node_modules",
+        "remove:php-cs-fixer_cache": "rm -rf ./.php-cs-fixer.cache",
+        "remove:phpunit.result.cache": "rm -rf ./.phpunit.result.cache",
+        "clear": "npm run \"clear:docs\" && npm run \"remove:node_modules\" && npm run \"remove:php-cs-fixer_cache\" && npm run \"remove:phpunit.result.cache\"",
+
+        "server:php": "live-server . --no-css-inject --port=8080",
+
+		"build:phpdoc": "php \"C:\\PHP\\phpDocumentor.phar\" --config phpdoc.dist.xml",
+        "watch:phpdoc": "nodemon --watch ./config --watch ./public --watch ./src  --watch ./tests --ext php --exec \"npm run build:phpdoc\"",
+        "server:phpdoc": "live-server ./docs/phpdoc/html --no-css-inject --port=8181",
+
+		"build:jsdoc": "jsdoc --configure jsdoc.json",
+        "watch:jsdoc": "nodemon --watch ./public/js --ext js,jsdoc,jsx --exec \"npm run build:jsdoc\"",
+        "server:jsdoc": "live-server ./docs/jsdoc --no-css-inject --port=8282",
+
+		"watch:scss": "sass --watch src/scss:public/css",
+        "build:sassdoc": "sassdoc src/ --config .sassdocrc",
+        "watch:sassdoc": "nodemon --watch ./src/scss --ext scss --exec \"npm run build:sassdoc\"",
+        "server:sassdoc": "live-server ./docs/sassdoc --no-css-inject --port=8383",
+
+		"lint": "php-cs-fixer fix",
+        "watch:lint": "nodemon --watch ./config --watch ./public --watch ./src --ext php --exec \"npm run lint\"",
+
+		"prettier": "prettier --write \"**/*\"",
+        "watch:prettier": "nodemon --watch ./public --watch ./src --ext css,html,js,scss --exec \"npm run prettier\"",
+
+		"unittest": "phpunit",
+		"watch:unittest": "nodemon --watch ./config --watch ./public --watch ./src --watch ./tests --ext php --exec \"clear && npm run unittest\"",
+
+		"install:dependencies": "npm install",
+        "run:parallel": "npm-run-all --parallel server:php watch:phpdoc server:phpdoc",
+        "dev": "npm run \"install:dependencies\" && npm run \"run:parallel\""
+    },
+    "devDependencies": {
+        "npm-run-all": "^4.1.5",
+        "prettier": "2.6.2"
+    }
+}

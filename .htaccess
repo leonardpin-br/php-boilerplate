@@ -1,0 +1,9 @@
+RewriteEngine On
+#301 Redirect public to root
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^php-boilerplate/public/(.*)$ /$1 [L,R=301]
+#rewrite root to public
+#including all files and folders
+#exclude the destination folder
+RewriteCond %{REQUEST_URI} !^/php-boilerplate/public [NC]
+RewriteRule ^(.*)$ /php-boilerplate/public/$1 [L]

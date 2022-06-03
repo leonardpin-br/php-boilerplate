@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Test\\PHP_Boilerplate\\classes\\ExampleSuperclassTest::testPrintMessage":3},"times":{"Test\\PHP_Boilerplate\\classes\\ExampleSuperclassTest::testPrintMessage":0.011,"tests\\classes\\ExampleSubclassTest::testPrintMessage":0.009}}
