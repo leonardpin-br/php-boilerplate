@@ -49,12 +49,12 @@ class ExampleSuperclassTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers PHP_Boilerplate\classes\ExampleSuperclass::printMessage
+     * @covers PHP_Boilerplate\classes\ExampleSuperclass::returnMessage
      */
-    public function testPrintMessage()
+    public function testReturnMessage()
     {
         $expected_result = "The constructor of the superclass received the number: 10.<br />";
-        $result = $this->object->PrintMessage();
+        $result = $this->object->returnMessage();
         $this->assertEquals($expected_result, $result);
     }
 }
