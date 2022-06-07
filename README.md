@@ -1,4 +1,4 @@
 # php-boilerplate
-PHP boilerplate code to start projects._
+PHP boilerplate code to start projects.
 
 
