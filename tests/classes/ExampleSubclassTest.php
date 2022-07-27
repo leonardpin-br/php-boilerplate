@@ -22,7 +22,8 @@ use PHP_Boilerplate\classes\ExampleSubclass;
 
 /**
  * @covers  PHP_Boilerplate\classes\ExampleSubclass
- * @uses    <a href="classes/PHP-Boilerplate-classes-ExampleSubclass.html">PHP_Boilerplate\classes\ExampleSubclass</a> to test its functionality.
+ * @uses    <a href="classes/PHP-Boilerplate-classes-ExampleSubclass.html">PHP_Boilerplate\classes\ExampleSubclass</a>
+ *          to test its functionality.
  */
 class ExampleSubclassTest extends \PHPUnit\Framework\TestCase
 {
@@ -33,9 +34,9 @@ class ExampleSubclassTest extends \PHPUnit\Framework\TestCase
         $this->exampleSubclass = new ExampleSubclass();
     }
 
-    public function testPrintMessage(): void
+    public function testReturnMessage(): void
     {
-        $result = $this->exampleSubclass->printMessage();
+        $result = $this->exampleSubclass->returnMessage();
         $expected_result = "The constructor of the superclass received the number: 10.<br />";
         $this->assertEquals($expected_result, $result);
     }

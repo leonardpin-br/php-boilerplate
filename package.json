@@ -44,7 +44,7 @@
         "prettier": "npx prettier --write \"**/*\"",
         "watch:prettier": "npx nodemon --watch ./public --watch ./src --ext css,html,js,scss --exec \"npm run prettier\"",
 
-        "unittest": "phpunit",
+        "unittest": "\"./vendor/bin/phpunit\"",
         "watch:unittest": "npx nodemon --watch ./config --watch ./public --watch ./src --watch ./tests --ext php --exec \"clear && npm run unittest\"",
 
         "install:dependencies": "npm install",
