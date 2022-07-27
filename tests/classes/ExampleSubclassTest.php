@@ -31,7 +31,7 @@ class ExampleSubclassTest extends \PHPUnit\Framework\TestCase
 
     protected function setUp(): void
     {
-        $this->exampleSubclass = new ExampleSubclass();
+                    $this->exampleSubclass = new ExampleSubclass();
     }
 
     public function testReturnMessage(): void

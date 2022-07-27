@@ -44,8 +44,8 @@
         "prettier": "npx prettier --write \"**/*\"",
         "watch:prettier": "npx nodemon --watch ./public --watch ./src --ext css,html,js,scss --exec \"npm run prettier\"",
 
-        "unittest": "\"./vendor/bin/phpunit\"",
-        "watch:unittest": "npx nodemon --watch ./config --watch ./public --watch ./src --watch ./tests --ext php --exec \"clear && npm run unittest\"",
+        "unittest": "C:/Apache24/htdocs/php-boilerplate/vendor/bin/phpunit",
+        "watch:unittest": "npx nodemon --watch ./config --watch ./public --watch ./src --watch ./tests --ext php --exec \"npm run unittest\"",
 
         "install:dependencies": "npm install",
         "run:parallel": "npx npm-run-all --parallel server:php watch:phpdoc server:phpdoc",

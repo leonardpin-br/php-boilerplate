@@ -12,7 +12,12 @@
 				"*.php"
 			]
 		},
-		"better-phpunit.xmlConfigFilepath": "./phpunit.xml",
+        "phpunit.php": "C:/PHP/php.exe",
+        "phpunit.phpunit": "C:/Apache24/htdocs/php-boilerplate/vendor/bin/phpunit",
+        "phpunit.args": [
+            "-c",
+            "phpunit.xml"
+        ],
 		"phpunit.files": "{test,tests}/**/*Test.php",
         "testExplorer.useNativeTesting": false,
 	},
@@ -32,7 +37,7 @@
 			{
 				"label": "phpunit",
 				"type": "shell",
-				"command": "C:/Users/leonardo/AppData/Roaming/Composer/vendor/bin/phpunit.bat",
+				"command": "C:/Apache24/htdocs/php-boilerplate/vendor/bin/phpunit",
 				"problemMatcher": []
 			},
 			{
