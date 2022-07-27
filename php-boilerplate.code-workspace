@@ -5,8 +5,8 @@
 		}
 	],
 	"settings": {
-		"phpcs.executablePath": "../../../Users/leonardo/AppData/Roaming/Composer/vendor/bin/phpcs",
-		"phpcs.showWarnings": false,
+        "php-cs-fixer.executablePath": "C:/Apache24/htdocs/php-boilerplate/vendor/bin/php-cs-fixer.bat",
+        "phpcs.executablePath": "./vendor/bin/phpcs",
 		"triggerTaskOnSave.tasks": {
 			"phpunit": [
 				"*.php"
@@ -14,7 +14,7 @@
 		},
 		"better-phpunit.xmlConfigFilepath": "./phpunit.xml",
 		"phpunit.files": "{test,tests}/**/*Test.php",
-		"testExplorer.useNativeTesting": false
+        "testExplorer.useNativeTesting": false,
 	},
 	"tasks": {
 		"version": "2.0.0",
