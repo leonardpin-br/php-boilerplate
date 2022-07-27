@@ -4,8 +4,9 @@
 # Include all folders
 !/**/*/
 
-# But exclude node_modules folders anywhere
+# But exclude node_modules and vendor folders anywhere
 node_modules/
+vendor/
 
 
 # Include specific file extensions if they appear under these folders

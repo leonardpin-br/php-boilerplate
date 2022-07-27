@@ -17,15 +17,18 @@
  */
 
 $finder = PhpCsFixer\Finder::create()
-    // exclude only excludes folders.
+    // The exclude method only excludes folders.
     ->exclude('docs')
+    ->exclude('nbproject')
     ->exclude('public/css')
     ->exclude('public/img')
     ->exclude('public/js')
     ->exclude('resources')
     ->exclude('src/scss')
+    ->exclude('src/sh')
+    ->exclude('vendor')
 
-    // notPath only excludes files.
+    // The notPath method only excludes files.
     ->notPath('ignoredFile.php')
 
     // Where to look for files.
