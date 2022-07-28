@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# This file is meant to be run from the project root folder.
+# This file is meant to be run from the project root folder and receive, as
+# argument, the filename (with extension) of the file to create the test from.
 
 # REFERENCES:
 # https://github.com/VitexSoftware/phpunit-skeleton-generator
@@ -14,37 +15,41 @@
 
 
 include() {
-    # MY_DIR is the <project_root>/src/sh directory.
-    # MY_DIR=$(dirname $(readlink -f $0))
-
     # ONLY FOR DEBUG:
     MY_DIR="/var/www/html/php-boilerplate/src/sh"
+
+    # # MY_DIR is the <project_root>/src/sh directory.
+    # MY_DIR=$(dirname $(readlink -f $0))
+
     . $MY_DIR/$1
 }
 
 # Included files
 include "utils.sh"
 
+# Gets the relative folder path to the file given as argument.
 # param1 (string): Only the filename with extension, not the path.
 get_file_relative_folder() {
-    # local project_folder=$(get_project_folder)
     local src_folder="./src/"
     local file_relative_folder=$(find "$src_folder" -name "$1" -printf '%h\n')
     echo "$file_relative_folder"
 }
 
+# Gets the namespace of the file given as argument.
 # param1 (string): Full file path of the opened file.
 # return (string): The complete namespace as it exists in the opened (class) file.
 get_file_namespace() {
-    # Find the namespace inside the opened file.
-    local line_containing_namespace=$(grep -w '^namespace' "$1") # namespace PHP_Boilerplate\classes\subfolder;
-    local complete_namespace=${line_containing_namespace/namespace /}
+    local file_full_path="$1"
+
+    local line_with_namespace=$(grep -w '^namespace' $file_full_path)
+    local complete_namespace=${line_with_namespace/namespace /}
     complete_namespace=$(echo "${complete_namespace%%;*}")
 
     # Return
     echo "$complete_namespace"
 }
 
+# Gets the class name of the file given as argument.
 # param1 (string): Full file path of the opened file.
 # return (string): The class name as it exists in the opened (class) file.
 get_class_name() {
@@ -240,5 +245,7 @@ main() {
     vendor/bin/php-cs-fixer fix "$test_full_path"
 }
 
-# main "$1"
+# ONLY FOR DEBUG:
 main "ExampleSuperclass.php"
+
+# main "$1"
