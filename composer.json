@@ -14,5 +14,10 @@
         "phpunit/phpunit": "^9.5",
         "vitexsoftware/phpunit-skeleton-generator": "^2.1",
         "squizlabs/php_codesniffer": "^3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "PHP_Boilerplate\\": "src/"
+        }
     }
 }
