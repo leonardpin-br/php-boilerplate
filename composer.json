@@ -16,6 +16,10 @@
         "squizlabs/php_codesniffer": "^3.7"
     },
     "autoload": {
+        "files": [
+            "src/shared/utils.php",
+            "config/config.php"
+        ],
         "psr-4": {
             "PHP_Boilerplate\\": "src/"
         }

@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * DEPRECATED SINCE STARTED USING COMPOSER.
+ *
  * Autoload functionality to load all classes.
  *
  * This autoload is intended to be used by files that will load classes.<br />

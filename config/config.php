@@ -26,7 +26,7 @@
  *              alias phpunit-skelgen="/cygdrive/c/Users/leonardo/AppData/Roaming/Composer/vendor/bin/phpunit-skelgen.bat"</code>
  */
 
-require_once(__DIR__ . '/../src/shared/utils.php');
+require_once(__DIR__ . '/../vendor/autoload.php');
 
 $project_folder = get_project_folder();
 

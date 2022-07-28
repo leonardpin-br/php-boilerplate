@@ -33,7 +33,6 @@ $page_title = "The home page";
 
 require_once(__DIR__ . '/../src/includes/head.php');
 require_once(__DIR__ . '/../src/includes/header.php');
-// require_once(__DIR__ . '/../src/shared/autoload.php');
 require_once(__DIR__ . '/../vendor/autoload.php');
 
 // This is how classes can be used:
@@ -42,7 +41,7 @@ use PHP_Boilerplate\classes\ExampleSubclass;
 
 $new_obj = new ExampleSubclass();
 echo($new_obj->greeter());
-// echo($new_obj->returnMessage());
+echo($new_obj->returnMessage());
 ?>
 <main>
 

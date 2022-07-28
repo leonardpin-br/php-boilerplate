@@ -16,7 +16,8 @@
 
 namespace Test\PHP_Boilerplate\classes;
 
-require_once(__DIR__ . '/../../../src/shared/autoload.php');
+// require_once(__DIR__ . '/../../../src/shared/autoload.php');
+require_once(__DIR__ . '/../../../vendor/autoload.php');
 
 
 use PHP_Boilerplate\classes\ExampleSuperclass;
@@ -52,10 +53,10 @@ class ExampleSuperclassTest extends \PHPUnit\Framework\TestCase
      * @covers PHP_Boilerplate\classes\ExampleSuperclass::returnMessage
      * @todo   Implement testReturnMessage().
      */
-    public function testReturnMessage()
+    public function testReturnMessage(): void
     {
-        $this->assertEquals('', $this->object->ReturnMessage());
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $result = $this->object->returnMessage();
+        $expected_result = "The constructor of the superclass received the number: 10.<br />";
+        $this->assertEquals($expected_result, $result);
     }
 }

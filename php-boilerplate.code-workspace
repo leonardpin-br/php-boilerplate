@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
+        "files.eol": "\n",
         "php-cs-fixer.executablePath": "C:/Apache24/htdocs/php-boilerplate/vendor/bin/php-cs-fixer.bat",
         "phpcs.executablePath": "./vendor/bin/phpcs",
 		"triggerTaskOnSave.tasks": {
