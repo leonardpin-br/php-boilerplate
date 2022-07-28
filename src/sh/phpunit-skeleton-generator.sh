@@ -54,7 +54,7 @@ get_file_namespace() {
 # return (string): The class name as it exists in the opened (class) file.
 get_class_name() {
     # Find the class name inside the opened file.
-    local line_containing_class_name=$(grep -w '^class' "$1") # namespace PHP_Boilerplate\classes\subfolder;
+    local line_containing_class_name=$(grep -w '^class' "$1")
     local class_name=${line_containing_class_name/class /}
     class_name=$(echo "${class_name%% *}")
 
@@ -243,6 +243,9 @@ main() {
 
     # Formats the test file.
     vendor/bin/php-cs-fixer fix "$test_full_path"
+
+    echo -e "The test file was created successfully!"
+    exit 0
 }
 
 # ONLY FOR DEBUG:
