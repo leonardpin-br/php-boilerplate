@@ -13,7 +13,7 @@
         "npm-run-all": "^4.1.5",
         "prettier": "^2.6.2",
         "sass": "^1.54.0",
-        "sassdoc": "^1.10.12"
+        "sassdoc": "^2.7.4"
     },
     "scripts": {
         "clear:docs": "rm -rf ./docs/jsdoc/* && rm -rf ./docs/phpdoc/cache/* && rm -rf ./docs/phpdoc/html/* && rm -rf ./docs/sassdoc/*",
@@ -40,7 +40,6 @@
 
         "lint": "php-cs-fixer fix",
         "watch:lint": "npx nodemon --watch ./config --watch ./public --watch ./src --ext php --exec \"npm run lint\"",
-
         "prettier": "npx prettier --write \"**/*\"",
         "watch:prettier": "npx nodemon --watch ./public --watch ./src --ext css,html,js,scss --exec \"npm run prettier\"",
 
