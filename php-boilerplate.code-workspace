@@ -59,7 +59,7 @@
 			{
 				"type": "bashdb",
 				"request": "launch",
-				"name": "Bash-Debug (hardcoded script name)",
+				"name": "Bash-Debug (opened script)",
 				"cwd": "${workspaceFolder}",
 				"program": "${file}",
 				"args": []

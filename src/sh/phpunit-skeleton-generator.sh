@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This file is meant to be run from the project root folder.
+
 # REFERENCES:
 # https://github.com/VitexSoftware/phpunit-skeleton-generator
 # https://stackoverflow.com/questions/8880603/loop-through-an-array-of-strings-in-bash
@@ -13,10 +15,11 @@
 
 include() {
     # MY_DIR is the <project_root>/src/sh directory.
-    MY_DIR=$(dirname $(readlink -f $0))
+    # MY_DIR=$(dirname $(readlink -f $0))
+
+    # ONLY FOR DEBUG:
+    MY_DIR="/var/www/html/php-boilerplate/src/sh"
     . $MY_DIR/$1
-    # MY_DIR="smb://152.92.160.45/htdocs/php-boilerplate/src/sh"
-    # source "$1"
 }
 
 # Included files
@@ -24,10 +27,8 @@ include "utils.sh"
 
 # param1 (string): Only the filename with extension, not the path.
 get_file_relative_folder() {
-    local project_folder=$(get_project_folder)
-    echo -e "$project_folder"
-    exit 0
-    local src_folder="${project_folder}/src"
+    # local project_folder=$(get_project_folder)
+    local src_folder="./src/"
     local file_relative_folder=$(find "$src_folder" -name "$1" -printf '%h\n')
     echo "$file_relative_folder"
 }
@@ -227,7 +228,7 @@ main() {
     fi
 
     # Creates the test file.
-    phpunit-skelgen.bat generate-test $file_namespace_and_class_name $file_full_path $test_namespace_sufix $test_full_path
+    vendor/bin/phpunit-skelgen generate-test $file_namespace_and_class_name $file_full_path $test_namespace_sufix $test_full_path
 
     # Inserts the documentation into file.
     insert_phpdoc_file_documentation "$test_full_path"
@@ -236,7 +237,7 @@ main() {
     insert_require_once "$test_full_path"
 
     # Formats the test file.
-    php-cs-fixer.bat fix "$test_full_path"
+    vendor/bin/php-cs-fixer fix "$test_full_path"
 }
 
 # main "$1"
