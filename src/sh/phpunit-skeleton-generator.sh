@@ -249,6 +249,8 @@ main() {
     fi
 
     # Creates the test file.
+    # https://github.com/cyberpearuk/phpunit-skelgen#usage
+    # ./vendor/bin/phpunit-skelgen --ansi generate-test <namespace> <src-file> <test-class-name> <tst-file>
     vendor/bin/phpunit-skelgen generate-test $file_namespace_and_class_name $file_full_path $test_namespace_sufix $test_full_path
 
     # Inserts the documentation into file.
