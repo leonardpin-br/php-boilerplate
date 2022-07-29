@@ -197,11 +197,25 @@ main() {
     # Receives the ${fileBasename} (filename with extension) from the VSCODE task.
     current_opened_file="$1"
 
+    # Verifies if the argument was passed, and if the file exists.
+    # https://stackoverflow.com/a/21164441
+    if [ -f $current_opened_file ]; then
+        print_error_message "This script receives, as argument, the name of the php file (with extension) that is going to be tested.\nThe file must be in the src folder or inside a subfolder."
+        exit 1
+    elif [[ $current_opened_file != *\.php ]]; then
+        print_error_message "The file must have the \".php\" extension."
+        exit 1
+    fi
+
     # Builds the full file path to the opened file.
     local file_relative_folder=$(get_file_relative_folder "$current_opened_file")
-
     local file_full_folder_path=$(realpath $file_relative_folder)
     local file_full_path="${file_full_folder_path}/${current_opened_file}"
+
+    if [[ ! -f $file_full_path ]]; then
+        print_error_message "File (from which the test will be created) not found in the src folder or in its subfolders."
+        exit 1
+    fi
 
     # Creates the full folder path for the test file that will be created.
     local tests_replacement="tests/src"

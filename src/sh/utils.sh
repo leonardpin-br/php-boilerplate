@@ -55,3 +55,11 @@ path_array_join() {
     # Return
     echo $path_array
 }
+
+# Prints an error message that is easy to read in the console.
+# param1 (string): The error message to be printed.
+print_error_message() {
+    echo -e "\n--------------------------------------------------------------\n"
+    echo -e "$1"
+    echo -e "\n--------------------------------------------------------------\n\n"
+}
