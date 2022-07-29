@@ -43,7 +43,7 @@
         "prettier": "npx prettier --write \"**/*\"",
         "watch:prettier": "npx nodemon --watch ./public --watch ./src --ext css,html,js,scss --exec \"npm run prettier\"",
 
-        "unittest": "C:/Apache24/htdocs/php-boilerplate/vendor/bin/phpunit",
+        "unittest": "C:/Apache24/htdocs/php-boilerplate/vendor/bin/phpunit --configuration phpunit.xml",
         "watch:unittest": "npx nodemon --watch ./config --watch ./public --watch ./src --watch ./tests --ext php --exec \"npm run unittest\"",
 
         "install:dependencies": "npm install",

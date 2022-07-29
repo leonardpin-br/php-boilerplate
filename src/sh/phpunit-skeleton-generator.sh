@@ -15,11 +15,11 @@
 
 
 include() {
-    # ONLY FOR DEBUG:
-    MY_DIR="/var/www/html/php-boilerplate/src/sh"
+    # # ONLY FOR DEBUG:
+    # MY_DIR="/var/www/html/php-boilerplate/src/sh"
 
-    # # MY_DIR is the <project_root>/src/sh directory.
-    # MY_DIR=$(dirname $(readlink -f $0))
+    # MY_DIR is the <project_root>/src/sh directory.
+    MY_DIR=$(dirname $(readlink -f $0))
 
     . $MY_DIR/$1
 }
@@ -136,6 +136,7 @@ insert_phpdoc_file_documentation() {
     # s/AAAA/BBBB/options
     sed -i "s/$match/$match\n\n$phpdoc_file_documentation/" $file
 
+    # Return
     echo "$phpdoc_file_documentation"
 }
 
@@ -174,7 +175,7 @@ insert_require_once() {
         levels_up="${levels_up}${one_level_up}"
     done
 
-    local require_once_statement="require_once(__DIR__ . '${levels_up}\/src\/shared\/autoload.php');"
+    local require_once_statement="require_once(__DIR__ . '${levels_up}\/vendor\/autoload.php');"
 
     local match="$(grep -w '^namespace' "$test_full_path")"
     match=${match//\\/\\\\}
@@ -183,6 +184,7 @@ insert_require_once() {
     # s/AAAA/BBBB/options
     sed -i "s/$match/$match\n\n$require_once_statement/" $file
 
+    # Return
     echo "$require_once_statement"
 }
 
@@ -244,11 +246,11 @@ main() {
     # Formats the test file.
     vendor/bin/php-cs-fixer fix "$test_full_path"
 
-    echo -e "The test file was created successfully!"
+    echo -e "\n\nThe test file was created successfully!"
     exit 0
 }
 
-# ONLY FOR DEBUG:
-main "ExampleSuperclass.php"
+# # ONLY FOR DEBUG:
+# main "ExampleSuperclass.php"
 
-# main "$1"
+main "$1"
