@@ -232,7 +232,7 @@ main() {
     local file_namespace_and_class_name="${file_namespace}\\${file_class_name}"
 
     # Builds the test's namespace.
-    local test_namespace_sufix="${file_namespace_and_class_name}Test"
+    local test_class_name="${file_namespace_and_class_name}Test"
 
     # Builds the test's full path.
     local test_full_path="${tests_full_folder_path}/${current_opened_file}"
@@ -249,9 +249,11 @@ main() {
     fi
 
     # Creates the test file.
+    # Here, it is necessary to pass $file_namespace_and_class_name as argument
+    # instead of only the namespace.
     # https://github.com/cyberpearuk/phpunit-skelgen#usage
     # ./vendor/bin/phpunit-skelgen --ansi generate-test <namespace> <src-file> <test-class-name> <tst-file>
-    vendor/bin/phpunit-skelgen generate-test $file_namespace_and_class_name $file_full_path $test_namespace_sufix $test_full_path
+    vendor/bin/phpunit-skelgen generate-test $file_namespace_and_class_name $file_full_path $test_class_name $test_full_path
 
     # Inserts the documentation into file.
     insert_phpdoc_file_documentation "$test_full_path"
